@@ -2,10 +2,10 @@
   "name": "modulo_alumnos",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/src/index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "dev": "npx nodemon",
-    "start": "tsc && node ./dist/src/index.js"
+    "start": "tsc && node ./dist/index.js"
   },
   "repository": {
     "type": "git",
