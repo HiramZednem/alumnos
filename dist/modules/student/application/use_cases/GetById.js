@@ -9,21 +9,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StudentController = void 0;
-class StudentController {
-    constructor(getByIdUC) {
-        this.getByIdUC = getByIdUC;
-        this.getStudentById = (req, res) => __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { id_student } = req.params;
-                const student = yield this.getByIdUC.execute(id_student);
-                res.status(200).json(student);
-            }
-            catch (error) {
-                res.status(500).json({ error: 'Internal server error' });
-            }
-        });
+exports.GetByIdUseCase = void 0;
+class GetByIdUseCase {
+    constructor(studentRepository) {
+        this.studentRepository = studentRepository;
     }
     ;
+    execute(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.studentRepository.getStudentById(id)
+                .then((studentResolve) => {
+                return studentResolve;
+            }).catch((error) => {
+                console.log(error);
+            });
+        });
+    }
 }
-exports.StudentController = StudentController;
+exports.GetByIdUseCase = GetByIdUseCase;
